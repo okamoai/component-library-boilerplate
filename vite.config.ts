@@ -3,6 +3,7 @@
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import linaria from 'vite-plugin-linaria'
 import path from 'path'
 
 export default defineConfig({
@@ -11,7 +12,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './setupTest.ts',
   },
-  plugins: [react()],
+  plugins: [react(), linaria()],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
