@@ -1,3 +1,6 @@
+const { mergeConfig } = require('vite')
+const { vanillaExtractPlugin } = require('@vanilla-extract/vite-plugin')
+
 module.exports = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -14,5 +17,10 @@ module.exports = {
   },
   features: {
     storyStoreV7: true,
+  },
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      plugins: [vanillaExtractPlugin()],
+    })
   },
 }

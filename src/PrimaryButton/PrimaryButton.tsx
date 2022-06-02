@@ -1,7 +1,5 @@
 import { FC } from 'react'
-import styled from 'styled-components'
-import { colors } from '../styles'
-import { typography } from '../styles/typography'
+import { styles, vars } from './PrimaryButton.css'
 
 type PrimaryButtonProps = {
   fontSize: string
@@ -11,19 +9,8 @@ type PrimaryButtonProps = {
 
 export const PrimaryButton: FC<PrimaryButtonProps> = ({ text, onClick, fontSize }) => (
   <>
-    <Button type="button" onClick={onClick}>
-      <Text fontSize={fontSize}>{text}</Text>
-    </Button>
+    <button className={styles.button} type="button" onClick={onClick}>
+      <span className={styles.text} style={{ [vars.fontSize]: fontSize }}>{text}</span>
+    </button>
   </>
 )
-
-const Text = styled.span<{ fontSize: string }>(({ fontSize }) => ({
-  fontSize,
-  fontWeight: typography.weight.bold,
-  color: colors.light.black,
-}))
-
-const Button = styled.button({
-  backgroundColor: colors.light.primary,
-  padding: '10px 25px',
-})
