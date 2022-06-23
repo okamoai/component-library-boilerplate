@@ -1,5 +1,4 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import 'ress'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
